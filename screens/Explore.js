@@ -10,12 +10,51 @@ import {
     Button,
     StyleSheet
 } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select'; 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import FoodType from '../component/FoodType'
 import CollectionType from '../component/CollectionType';
 
-
+const locations = [
+    {
+      label: 'Ottawa',
+      value: 'Ottawa',
+    },
+    {
+      label: 'Toronto',
+      value: 'Toronto',
+    },
+    {
+      label: 'Montreal',
+      value: 'Montreal',
+    },
+    {
+        label: 'Vancouver',
+        value: 'Vancouver',
+      }
+  ];
+const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+      fontSize: 16,
+      paddingVertical: 12,
+      paddingHorizontal: 10,
+      borderWidth: 1,
+      borderColor: 'gray',
+      borderRadius: 4,
+      color: 'black',
+      paddingRight: 30, // to ensure the text is never behind the icon
+    },
+  });
 
 export default class Explore extends Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            location:"Ottawa"
+        }
+    }
 
     componentWillMount(){
         this.startHeaderHeight = 10;
@@ -45,6 +84,12 @@ export default class Explore extends Component{
               marginTop: 10,
             }
           })
+
+        const placeholder = {
+            label: 'Select a sport...',
+            value: null,
+            color: '#9EA0A4',
+          };
           
         return (
             <SafeAreaView style={{flex:1}}>
@@ -53,7 +98,33 @@ export default class Explore extends Component{
                             borderBottomWidth:1
                         }}> 
                     </View>
+                    
                     <ScrollView scrollEventThrottle = {16}>
+                        <View>
+                            <Text>Please select your city</Text>
+                            <RNPickerSelect
+                                placeholder={placeholder}
+                                items={locations}
+                                onValueChange={value => {
+                                    this.setState({
+                                    location: value,
+                                    });
+                                }}
+                                style={{
+                                    ...pickerSelectStyles,
+                                    iconContainer: {
+                                    top: 10,
+                                    right: 12,
+                                    },
+                                }}
+                                value={this.state.location}
+                                useNativeAndroidPickerStyle={false}
+                                textInputProps={{ underlineColor: 'yellow' }}
+                                Icon={() => {
+                                    return <Icon name="ios-arrow-down" size={24} color="gray" />;
+                                }}
+                            />
+                        </View>
                         <View style={{flex:1, paddingTop:15}}>
                             <Text style={{fontSize:25,fontWeight:'600'}}>
                                 Quick Spot Your Food

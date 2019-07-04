@@ -142,7 +142,9 @@ export default class OrderPage extends Component{
                         title='Checkout'
                         />
                         :
-                        null
+                        <View>
+                            {this.goBack()}
+                        </View>
                     }
                 </View>
             </View>

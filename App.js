@@ -47,15 +47,7 @@ const homeSack = createStackNavigator(
         navigationOptions:{
           headerTransparent: true,
           headerBackTitle: null,
-        
-          /*
-          headerBackground: (
-            <Image
-              style={{width:375}}
-              source={require('./assets/resLogo.jpeg')}
-            />
-          ),
-          */
+
         }
       },
     Order: {
@@ -79,15 +71,15 @@ export default createAppContainer(createBottomTabNavigator({
       }
     },
 
-    Search:{
-      screen:Search,
-      navigationOptions:{
-        tabBarLabel: 'SEARCH',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-search" color={tintColor} size={24} />
-        )
-      }
-    }
+   // Search:{
+     // screen:Search,
+      //navigationOptions:{
+       // tabBarLabel: 'SEARCH',
+        //tabBarIcon: ({ tintColor }) => (
+         // <Icon name="ios-search" color={tintColor} size={24} />
+       // )
+      //}
+   // }
   },{
     tabBarOptions:{
       activeTintColor:"red",
