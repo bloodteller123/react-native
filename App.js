@@ -24,7 +24,7 @@ import Menu from "./screens/Menu";
 
 //type Props = {};
 //const MainNavigator = createAppContainer(createBottomTabNavigator({
-
+  console.disableYellowBox = true;
 const homeSack = createStackNavigator({
   Home: {
     screen: Explore,
