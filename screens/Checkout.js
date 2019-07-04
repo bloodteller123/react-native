@@ -78,11 +78,26 @@ export default class Checkout extends Component {
         "debit" == this.state.CreditPicker ? (
           [
             <Text>Credit/Debit Card Number:</Text>,
-            <TextInput id="ccNumber" placeholder="############" />,
+            <TextInput
+              id="ccNumber"
+              placeholder="############"
+              keyboardType="number-pad"
+              maxLength={12}
+            />,
             <Text>Expiry Date:</Text>,
-            <TextInput id="expDate" placeholder="##/##" />,
+            <TextInput
+              id="expDate"
+              placeholder="####"
+              keyboardType="number-pad"
+              maxLength={4}
+            />,
             <Text>CVV:</Text>,
-            <TextInput id="CVV" placeholder="###" />,
+            <TextInput
+              id="CVV"
+              placeholder="###"
+              keyboardType="number-pad"
+              maxLength={3}
+            />,
             <Text>Full Name:</Text>,
             <TextInput id="name" placeholder="John Smith" />
           ]
