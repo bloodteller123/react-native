@@ -62,19 +62,21 @@ export default class Checkout extends Component {
     return (
       <View style={{ padding: 10 }}>
         <Text>Your Order Total: ${this.state.total}</Text>
-
-        <Picker
-          mode="dropdown"
-          style={{ height: 50, width: 200 }}
-          selectedValue={this.state.CreditPicker}
-          onValueChange={value => {
-            this.setState({ CreditPicker: value });
-          }}
-        >
-          <Picker.Item label="Credit" value="credit" key="0" />
-          <Picker.Item label="Debit" value="debit" key="1" />
-          <Picker.Item label="Cash" value="cash" key="2" />
-        </Picker>
+        <View>
+          <Text style={{fontSize:30,marginTop:30}}>Please Select Your Payment method</Text>
+          <Picker
+            mode="dropdown"
+            style={{ height: 50, width: 200 }}
+            selectedValue={this.state.CreditPicker}
+            onValueChange={value => {
+              this.setState({ CreditPicker: value });
+            }}
+          >
+            <Picker.Item label="Credit" value="credit" key="0" />
+            <Picker.Item label="Debit" value="debit" key="1" />
+            <Picker.Item label="Cash" value="cash" key="2" />
+          </Picker>
+        </View>
         <View style={{ marginTop: 150}}>
         {"credit" == this.state.CreditPicker ||
         "debit" == this.state.CreditPicker ? (

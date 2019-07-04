@@ -74,17 +74,17 @@ export default createAppContainer(
             <Icon name="ios-apps" color={tintColor} size={24} />
           )
         }
-      }
+      },
 
-      // Search:{
-      // screen:Search,
-      //navigationOptions:{
-      // tabBarLabel: 'SEARCH',
-      //tabBarIcon: ({ tintColor }) => (
-      // <Icon name="ios-search" color={tintColor} size={24} />
-      // )
-      //}
-      // }
+      Search:{
+       screen:Search,
+      navigationOptions:{
+       tabBarLabel: 'SEARCH',
+      tabBarIcon: ({ tintColor }) => (
+       <Icon name="ios-search" color={tintColor} size={24} />
+       )
+      }
+       }
     },
     {
       tabBarOptions: {
