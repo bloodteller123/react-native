@@ -53,7 +53,11 @@ export default class Checkout extends Component {
       showCredit: true
     };
   }
-
+  onChanged = text => {
+    this.setState({
+        mobile: text.replace(/[^0-9]/g, ''),
+    });
+}
   render() {
     return (
       <View style={{ padding: 10 }}>
@@ -71,6 +75,7 @@ export default class Checkout extends Component {
           <Picker.Item label="Debit" value="debit" key="1" />
           <Picker.Item label="Cash" value="cash" key="2" />
         </Picker>
+        <View style={{ marginTop: 150}}>
         {"credit" == this.state.CreditPicker ||
         "debit" == this.state.CreditPicker ? (
           [
@@ -78,21 +83,21 @@ export default class Checkout extends Component {
             <TextInput
               id="ccNumber"
               placeholder="############"
-              keyboardType="number-pad"
+              keyboardType="numeric"
               maxLength={12}
             />,
             <Text>Expiry Date:</Text>,
             <TextInput
               id="expDate"
               placeholder="####"
-              keyboardType="number-pad"
+              keyboardType="numeric"
               maxLength={4}
             />,
             <Text>CVV:</Text>,
             <TextInput
               id="CVV"
               placeholder="###"
-              keyboardType="number-pad"
+              keyboardType="numeric"
               maxLength={3}
             />,
             <Text>Full Name:</Text>,
@@ -101,6 +106,7 @@ export default class Checkout extends Component {
         ) : (
           <Text>Cash will be done in-store</Text>
         )}
+        </View>
         <Button title="Submit" />
       </View>
     );
