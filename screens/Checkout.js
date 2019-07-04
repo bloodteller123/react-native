@@ -57,10 +57,7 @@ export default class Checkout extends Component {
   render() {
     return (
       <View style={{ padding: 10 }}>
-        <Text>
-          Your Order Total: ${this.state.total} {this.state.CreditPicker + ""}{" "}
-          {this.state.showCredit}{" "}
-        </Text>
+        <Text>Your Order Total: ${this.state.total}</Text>
 
         <Picker
           mode="dropdown"
